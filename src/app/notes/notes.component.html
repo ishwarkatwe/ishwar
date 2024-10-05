@@ -1,0 +1,9 @@
+<h2 class="h1">Notes</h2>
+
+<ul class="list">
+    @for (note of notes; track $index) {
+    <li class="txt-secondary">
+        <a class="txt-secondary" [href]="note.link">{{note.name}}</a>
+    </li>
+    }
+</ul>

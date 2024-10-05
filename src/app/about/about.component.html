@@ -1,0 +1,37 @@
+<div class="container ptb-2">
+    <section class="mtb-1">
+        <h1 class="h1 mtb-1">{{data.personal_info.name}}</h1>
+        <small class="text-secondary">{{data.personal_info.title}}</small>
+
+        <p class="lh-1-half text-secondary">
+            {{data.professional_summary}}
+        </p>
+    </section>
+
+
+    <section class="mtb-2">
+        <h3 class="h1">Skills</h3>
+        <hr class="divider">
+        <ul class="list mtb-1">
+            @for (item of data.core_competencies; track $index) {
+            <li>{{item}}</li>
+            }
+        </ul>
+    </section>
+
+    <section class="mtb-2">
+        <h3 class="h1">Professional Experience</h3>
+        <hr class="divider">
+        <ul class="list mtb-1">
+            @for (c of data.professional_experience; track $index) {
+            <li>
+                <div class="flex-colum">
+                    <label class="mtb-1">{{c.company}}</label>
+                    <small>{{c.dates}}</small>
+                    <p>{{c.responsibilities}}</p>
+                </div>
+            </li>
+            }
+        </ul>
+    </section>
+</div>

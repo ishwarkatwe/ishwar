@@ -1,0 +1,41 @@
+@import "./../../../utils/base";
+
+:host header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 80px;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  padding: 0px 10%;
+  background: #ffffffcf;
+  backdrop-filter: blur(2px);
+  z-index: 1;
+
+  .logo {
+    text-decoration: none;
+  }
+
+  .nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    a {
+      padding: 6px 6px;
+      margin: 0px 5px;
+      text-align: center;
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      color: $primary-text;
+      &:hover {
+        border-bottom: 2px solid lighten($accent, 20%);
+      }
+
+      &.active {
+        border-bottom: 2px solid $accent;
+      }
+    }
+  }
+}

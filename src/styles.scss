@@ -1,0 +1,112 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./utils/base";
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0px;
+  margin: 0px;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  font-size: 16px;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+}
+
+.bg-primary {
+  background-color: $primary;
+}
+
+.bg-secondary {
+  background-color: $secondary;
+}
+
+.txt-primary {
+  color: $primary-text;
+}
+
+.txt-secondary {
+  color: $secondary-text;
+}
+
+.txt-center {
+  text-align: center;
+}
+
+.txt-right {
+  text-align: right;
+}
+
+.txt-left {
+  text-align: left;
+}
+
+.h1 {
+  font-weight: 400;
+}
+
+.ptb-1 {
+  padding: 1rem 0;
+}
+
+.ptb-2 {
+  padding: 2rem 0;
+}
+
+.m-0 {
+  margin: 0;
+}
+.mtb-1 {
+  margin: 1rem 0;
+}
+
+.mtb-2 {
+  margin: 2rem 0;
+}
+
+.lh-1 {
+  line-height: 1rem;
+}
+
+.lh-1-half {
+  line-height: 1.5rem;
+}
+
+.divider {
+  border: 0.5px solid #d0d0d0;
+  margin: 5px 0px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.list {
+  padding: 0px;
+  margin: 0px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+
+  li {
+    list-style: none;
+    padding: 5px 0px;
+    margin: 5px 0px;
+  }
+}
+
+.flex-colum {
+  display: flex;
+  flex-direction: column;
+}
