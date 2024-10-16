@@ -1,0 +1,63 @@
+// Mixin for input styling
+@mixin input-style(
+  $padding-vertical: 0.75rem,
+  // Default vertical padding
+  $padding-horizontal: 1rem,
+  // Default horizontal padding
+  $font-size: 1rem,
+  // Default font size
+  $text-color: #333,
+  // Default text color
+  $background-color: #fff,
+  // Default background color
+  $border-color: #ccc,
+  // Default border color
+  $border-radius: 0.25rem,
+  // Default border radius
+  $focus-border-color: darken($border-color, 15%),
+  // Focus border color
+  $focus-box-shadow-color: rgba(0, 0, 0, 0.1) // Focus box shadow color
+) {
+  display: block;
+  width: 100%;
+  padding: $padding-vertical $padding-horizontal;
+  font-size: $font-size;
+  color: $text-color;
+  background-color: $background-color;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+  &:focus {
+    border-color: $focus-border-color;
+    box-shadow: 0 0 5px $focus-box-shadow-color;
+    outline: none;
+  }
+
+  &:disabled {
+    background-color: lighten($background-color, 20%);
+    border-color: lighten($border-color, 20%);
+    color: lighten($text-color, 20%);
+    cursor: not-allowed;
+  }
+}
+
+// Usage examples
+input,
+textarea,
+select {
+  @include input-style();
+}
+
+.input-large {
+  @include input-style($padding-vertical: 1rem, $font-size: 1.25rem);
+}
+
+.input-secondary {
+  @include input-style(
+    $background-color: #f7f7f7,
+    $border-color: #ddd,
+    $focus-border-color: #aaa
+  );
+}

@@ -1,0 +1,17 @@
+/* Custom colors for panel */
+$panel-header-bg: #651fff;
+$panel-body-bg: #ffffff;
+$panel-footer-bg: #536dfe;
+$panel-header-text: $white;
+$panel-body-text: #212121;
+$panel-footer-text: $white;
+
+/* Override default variables */
+.panel {
+  --header-background-color: $panel-header-bg;
+  --body-background-color: $panel-body-bg;
+  --footer-background-color: $panel-footer-bg;
+  --header-text-color: $panel-header-text;
+  --body-text-color: $panel-body-text;
+  --footer-text-color: $panel-footer-text;
+}

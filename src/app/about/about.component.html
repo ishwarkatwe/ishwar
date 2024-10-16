@@ -1,37 +1,43 @@
-<div class="container ptb-2">
-    <section class="mtb-1">
-        <h1 class="h1 mtb-1">{{data.personal_info.name}}</h1>
-        <small class="text-secondary">{{data.personal_info.title}}</small>
+<div class="container">
 
-        <p class="lh-1-half text-secondary">
-            {{data.professional_summary}}
-        </p>
-    </section>
+    <app-panel>
+        <h2 header>{{data.personal_info.name}}</h2>
+        <div body>
+            <small class="text-secondary">{{data.personal_info.title}}</small>
+
+            <p class="text-secondary mt-half-5">
+                {{data.professional_summary}}
+            </p>
+        </div>
+    </app-panel>
 
 
-    <section class="mtb-2">
-        <h3 class="h1">Skills</h3>
-        <hr class="divider">
-        <ul class="list mtb-1">
-            @for (item of data.core_competencies; track $index) {
-            <li>{{item}}</li>
-            }
-        </ul>
-    </section>
+    <app-panel>
+        <h2 header>Skills</h2>
+        <div body>
+            <div class="flex flex-column">
+                @for (s of data.core_competencies; track $index) {
+                <a class="text-secondary py-half-2">{{s}}</a>
+                }
+            </div>
+        </div>
+    </app-panel>
 
-    <section class="mtb-2">
-        <h3 class="h1">Professional Experience</h3>
-        <hr class="divider">
-        <ul class="list mtb-1">
-            @for (c of data.professional_experience; track $index) {
-            <li>
-                <div class="flex-colum">
-                    <label class="mtb-1">{{c.company}}</label>
+
+    @if (false) {
+    <app-panel>
+        <h2 header>Professional Experience</h2>
+        <div body>
+            <div class="flex flex-column">
+                @for (c of data.professional_experience; track $index) {
+                <div class="flex flex-column">
+                    <h3 class="my-half-2">{{c.company}}</h3>
                     <small>{{c.dates}}</small>
                     <p>{{c.responsibilities}}</p>
                 </div>
-            </li>
-            }
-        </ul>
-    </section>
+                }
+            </div>
+        </div>
+    </app-panel>
+    }
 </div>

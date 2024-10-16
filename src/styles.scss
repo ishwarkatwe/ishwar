@@ -1,112 +1,126 @@
 /* You can add global styles to this file, and also import other style files */
 @import "./utils/base";
+@import "./utils/theme";
+@import "./utils/media";
+@import "./utils/margin";
+@import "./utils/padding";
+@import "./utils/flexbox";
+@import "./utils/font-weight";
+@import "./utils/line-height";
+@import "./utils/panel";
+@import "./utils/border-radius";
+@import "./utils/position";
 
-* {
-  box-sizing: border-box;
-}
 
-html,
-body {
-  padding: 0px;
-  margin: 0px;
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-    Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
-    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
-  font-size: 16px;
-}
+@import "./utils/button";
+@import "./utils/input";
 
-body {
-  min-height: 100vh;
-}
+// * {
+//   box-sizing: border-box;
+// }
 
-.container {
-  width: 80%;
-  margin: auto;
-}
+// html,
+// body {
+//   padding: 0px;
+//   margin: 0px;
+//   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+//     Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+//     Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+//   font-size: 16px;
+// }
 
-.bg-primary {
-  background-color: $primary;
-}
+// body {
+//   min-height: 100vh;
+// }
 
-.bg-secondary {
-  background-color: $secondary;
-}
+// .container {
+//   width: 80%;
+//   margin: auto;
+// }
 
-.txt-primary {
-  color: $primary-text;
-}
+// .bg-primary {
+//   background-color: $primary;
+// }
 
-.txt-secondary {
-  color: $secondary-text;
-}
+// .bg-secondary {
+//   background-color: $secondary;
+// }
 
-.txt-center {
-  text-align: center;
-}
+// .txt-primary {
+//   color: $primary-text;
+// }
 
-.txt-right {
-  text-align: right;
-}
+// .txt-secondary {
+//   color: $secondary-text;
+// }
 
-.txt-left {
-  text-align: left;
-}
+// .txt-center {
+//   text-align: center;
+// }
 
-.h1 {
-  font-weight: 400;
-}
+// .txt-right {
+//   text-align: right;
+// }
 
-.ptb-1 {
-  padding: 1rem 0;
-}
+// .txt-left {
+//   text-align: left;
+// }
 
-.ptb-2 {
-  padding: 2rem 0;
-}
+// .h1 {
+//   font-weight: 400;
+// }
 
-.m-0 {
-  margin: 0;
-}
-.mtb-1 {
-  margin: 1rem 0;
-}
+// .ptb-1 {
+//   padding: 1rem 0;
+// }
 
-.mtb-2 {
-  margin: 2rem 0;
-}
+// .ptb-2 {
+//   padding: 2rem 0;
+// }
 
-.lh-1 {
-  line-height: 1rem;
-}
+// .m-0 {
+//   margin: 0;
+// }
+// .mtb-1 {
+//   margin: 1rem 0;
+// }
 
-.lh-1-half {
-  line-height: 1.5rem;
-}
+// .mtb-2 {
+//   margin: 2rem 0;
+// }
 
-.divider {
-  border: 0.5px solid #d0d0d0;
-  margin: 5px 0px;
-}
+// .lh-1 {
+//   line-height: 1rem;
+// }
 
-a {
-  text-decoration: none;
-}
+// .lh-1-half {
+//   line-height: 1.5rem;
+// }
 
-.list {
-  padding: 0px;
-  margin: 0px;
-  min-height: 200px;
-  display: flex;
-  flex-direction: column;
+// .divider {
+//   border: 0.5px solid #d0d0d0;
+//   margin: 5px 0px;
+// }
 
-  li {
-    list-style: none;
-    padding: 5px 0px;
-    margin: 5px 0px;
-  }
-}
+// a {
+//   text-decoration: none;
+// }
 
-.flex-colum {
-  display: flex;
-  flex-direction: column;
-}
+// .list {
+//   padding: 0px;
+//   margin: 0px;
+//   min-height: 200px;
+//   display: flex;
+//   flex-direction: column;
+
+//   li {
+//     list-style: none;
+//     padding: 5px 0px;
+//     margin: 5px 0px;
+//   }
+// }
+
+// .flex-colum {
+//   display: flex;
+//   flex-direction: column;
+// }

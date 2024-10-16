@@ -1,0 +1,16 @@
+<div class="panel flex flex-column my-1">
+    <!-- Panel Header -->
+    <div class="panel-header">
+        <ng-content select="[header]"></ng-content>
+    </div>
+
+    <!-- Panel Body -->
+    <div class="panel-body">
+        <ng-content select="[body]"></ng-content>
+    </div>
+
+    <!-- Panel Footer -->
+    <div class="panel-footer">
+        <ng-content select="[footer]"></ng-content>
+    </div>
+</div>

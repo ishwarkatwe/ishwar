@@ -1,0 +1,16 @@
+@mixin border-radius-classes($min: 0, $max: 10, $unit: rem) {
+    @for $i from $min through $max {
+      .br-#{$i} {
+        border-radius: #{$i}#{$unit};
+      }
+    }
+  
+    // Additional class for fully rounded elements (e.g., circles)
+    .br-full {
+      border-radius: 50%;
+    }
+  }
+  
+  // Usage: Call the mixin to generate border-radius classes
+  @include border-radius-classes(0, 10, rem);
+  

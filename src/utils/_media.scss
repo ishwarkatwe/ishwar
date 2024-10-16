@@ -1,0 +1,35 @@
+// _responsive.scss
+
+// Example responsive breakpoints (mobile-first)
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == "sm" {
+    @media (min-width: 576px) {
+      @content;
+    }
+  } @else if $breakpoint == "md" {
+    @media (min-width: 768px) {
+      @content;
+    }
+  } @else if $breakpoint == "lg" {
+    @media (min-width: 992px) {
+      @content;
+    }
+  } @else if $breakpoint == "xl" {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+}
+
+// Example usage
+.container {
+  padding: 1rem;
+
+  @include respond-to("md") {
+    padding: 2rem;
+  }
+
+  @include respond-to("lg") {
+    padding: 3rem;
+  }
+}

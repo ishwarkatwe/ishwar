@@ -1,0 +1,61 @@
+// Button style mixin
+@mixin button-style(
+  $padding-vertical: 0.5rem,
+  // Default vertical padding
+  $padding-horizontal: 1rem,
+  // Default horizontal padding
+  $font-size: 1rem,
+  // Default font size
+  $background-color: $primary-text,
+  // Default background color
+  $text-color: $white,
+  // Default text color
+  $border-radius: 0.25rem,
+  // Default border radius
+  $hover-background-color: darken($background-color, 10%),
+  // Hover color
+  $hover-text-color: $text-color // Hover text color
+) {
+  display: inline-block;
+  padding: $padding-vertical $padding-horizontal;
+  font-size: $font-size;
+  color: $text-color;
+  background-color: $background-color;
+  border: none;
+  border-radius: $border-radius;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  &:hover {
+    background-color: $hover-background-color;
+    color: $hover-text-color;
+  }
+
+  &:disabled {
+    background-color: lighten($background-color, 30%);
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+}
+
+// Example button usage
+.button-primary {
+  @include button-style();
+}
+
+.button-secondary {
+  @include button-style(
+    $background-color: #2ecc71,
+    $hover-background-color: darken(#2ecc71, 10%)
+  );
+}
+
+.button-large {
+  @include button-style(
+    $padding-vertical: 1rem,
+    $padding-horizontal: 2rem,
+    $font-size: 1.25rem
+  );
+}

@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { link } from 'fs';
+import { PanelComponent } from '../ui/panel/panel.component';
 
 @Component({
   selector: 'app-notes',
   standalone: true,
-  imports: [],
+  imports: [PanelComponent],
   templateUrl: './notes.component.html',
   styleUrl: './notes.component.scss',
 })
@@ -23,4 +23,20 @@ export class NotesComponent {
       link: null,
     },
   ];
+
+  // Example generic data
+  formData = {
+    name: '',
+    email: '',
+  };
+
+  // Handle footer button action
+  handleSave(data: any) {
+    console.log('Form data saved:', data);
+  }
+
+  // Handle panel close event
+  handleClose() {
+    console.log('Panel closed');
+  }
 }

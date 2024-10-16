@@ -1,4 +1,8 @@
-<footer class="container txt-center">
-    <hr class="divider"/>
-    <p class="txt-secondary ptb-1">© 2024 Ishwar Katwe, Inc. All rights reserved.</p>
+<footer class="container flex flex-column mx-2 my-2 justify-center items-center">
+    <nav class="my-2 flex flex-row gap-6">
+        @for (item of nav; track $index) {
+        <a class="text-secondary font-thin" [routerLink]="[item.link]" [routerLinkActive]="['active']">{{item.name}}</a>
+        }
+    </nav>
+    <small class="text-secondary">© 2024 Ishwar Katwe, Inc. All rights reserved.</small>
 </footer>

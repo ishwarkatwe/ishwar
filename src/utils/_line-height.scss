@@ -1,0 +1,10 @@
+@mixin line-height-classes($min: 1, $max: 10, $unit: rem) {
+  @for $i from $min through $max {
+    .lh-#{$i} {
+      line-height: #{$i}#{$unit};
+    }
+  }
+}
+
+// Usage: Call the mixin to generate line-height classes
+@include line-height-classes(1, 10, rem);

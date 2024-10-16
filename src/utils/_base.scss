@@ -1,8 +1,26 @@
 $white: white;
 $black: black;
 $grey: grey;
-$primary: 651FFF;
-$secondary: 536DFE;
+$primary: #651FFF;
+$secondary: #536DFE;
 $primary-text: #212121;
 $secondary-text: #757575;
 $accent: #ff4081;
+
+
+// Light Theme Colors
+$background-light: $white;
+$text-light: $primary-text;
+$secondary-text-light: $secondary-text;
+$border-light: #e0e0e0;
+
+// Dark Theme Colors
+$background-dark: #21232a;
+$text-dark: $white;
+$secondary-text-dark: #9ca3af;
+$border-dark: #424242;
+
+// Global Variables
+$primary-color: $primary;
+$secondary-color: $secondary;
+$accent-color: $accent;

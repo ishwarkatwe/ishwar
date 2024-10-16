@@ -1,0 +1,59 @@
+// Mixin to generate padding classes from 0 to 10 in rem units
+@mixin generate-padding-rem($min, $max) {
+  @for $i from $min through $max {
+    .p-#{$i} {
+      padding: #{$i}rem;
+    }
+    .pt-#{$i} {
+      padding-top: #{$i}rem;
+    }
+    .pb-#{$i} {
+      padding-bottom: #{$i}rem;
+    }
+    .pl-#{$i} {
+      padding-left: #{$i}rem;
+    }
+    .pr-#{$i} {
+      padding-right: #{$i}rem;
+    }
+    .px-#{$i} {
+      padding-left: #{$i}rem;
+      padding-right: #{$i}rem;
+    }
+    .py-#{$i} {
+      padding-top: #{$i}rem;
+      padding-bottom: #{$i}rem;
+    }
+  }
+}
+@mixin generate-padding-half-rem($min, $max) {
+  @for $i from $min through $max {
+    .p-half-#{$i} {
+      padding: #{'0.'+$i}rem;
+    }
+    .pt-half-#{$i} {
+      padding-top: #{'0.'+$i}rem;
+    }
+    .pb-half-#{$i} {
+      padding-bottom: #{'0.'+$i}rem;
+    }
+    .pl-half-#{$i} {
+      padding-left: #{'0.'+$i}rem;
+    }
+    .pr-half-#{$i} {
+      padding-right: #{'0.'+$i}rem;
+    }
+    .px-half-#{$i} {
+      padding-left: #{'0.'+$i}rem;
+      padding-right: #{'0.'+$i}rem;
+    }
+    .py-half-#{$i} {
+      padding-top: #{'0.'+$i}rem;
+      padding-bottom: #{'0.'+$i}rem;
+    }
+  }
+}
+
+// Use the mixin to generate padding classes from 0 to 10 in rem
+@include generate-padding-rem(0, 10);
+@include generate-padding-half-rem(0, 9);

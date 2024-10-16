@@ -1,0 +1,124 @@
+// _mixins.scss
+
+@mixin theme(
+  $background-color,
+  $text-color,
+  $secondary-text-color,
+  $border-color
+) {
+  background-color: $background-color;
+  color: $text-color;
+
+  // Applying colors to common elements
+  a,
+  svg {
+    color: $text-color;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $text-color;
+  }
+
+  p {
+    color: $secondary-text-color;
+  }
+
+  border-color: $border-color;
+
+  /* Generic Classes for Text Colors */
+  .text-primary {
+    color: $text-color;
+  }
+
+  .text-secondary {
+    color: $secondary-text-color;
+  }
+}
+
+// _themes.scss
+
+// Default (Light) Theme
+body {
+  @include theme(
+    $background-light,
+    $text-light,
+    $secondary-text-light,
+    $border-light
+  );
+}
+
+// System Theme (Auto detect user's preference)
+@media (prefers-color-scheme: dark) {
+  body {
+    @include theme(
+      $background-dark,
+      $text-dark,
+      $secondary-text-dark,
+      $border-dark
+    );
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    @include theme(
+      $background-light,
+      $text-light,
+      $secondary-text-light,
+      $border-light
+    );
+  }
+}
+
+// Light Theme Class
+.light-theme {
+  @include theme(
+    $background-light,
+    $text-light,
+    $secondary-text-light,
+    $border-light
+  );
+}
+
+// Dark Theme Class
+.dark-theme {
+  @include theme(
+    $background-dark,
+    $text-dark,
+    $secondary-text-dark,
+    $border-dark
+  );
+}
+
+// _global.scss
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a {
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+button {
+  cursor: pointer;
+}

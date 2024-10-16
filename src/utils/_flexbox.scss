@@ -1,0 +1,188 @@
+// _flexbox.scss
+
+@mixin flexbox(
+  $direction: row,
+  // flex-direction: row, column, row-reverse, column-reverse
+  $wrap: nowrap,
+  // flex-wrap: nowrap, wrap, wrap-reverse
+  $justify: flex-start,
+  // justify-content: flex-start, center, space-between, etc.
+  $align-items: stretch,
+  // align-items: stretch, center, flex-start, etc.
+  $align-content: stretch,
+  // align-content: stretch, center, space-between, etc.
+  $gap: 0 // gap between flex items (could be rem or px)
+) {
+  display: flex;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+  justify-content: $justify;
+  align-items: $align-items;
+  align-content: $align-content;
+  gap: $gap;
+}
+
+// _flexbox-classes.scss
+
+// Flex container classes
+.flex {
+  @include flexbox();
+}
+
+.flex-row {
+  @include flexbox(row);
+}
+
+.flex-column {
+  @include flexbox(column);
+}
+
+.flex-row-reverse {
+  @include flexbox(row-reverse);
+}
+
+.flex-column-reverse {
+  @include flexbox(column-reverse);
+}
+
+// Flex wrap
+.flex-wrap {
+  @include flexbox($wrap: wrap);
+}
+
+.flex-nowrap {
+  @include flexbox($wrap: nowrap);
+}
+
+.flex-wrap-reverse {
+  @include flexbox($wrap: wrap-reverse);
+}
+
+// Justify content
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.justify-evenly {
+  justify-content: space-evenly;
+}
+
+// Align items
+.items-start {
+  align-items: flex-start;
+}
+
+.items-end {
+  align-items: flex-end;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.items-baseline {
+  align-items: baseline;
+}
+
+.items-stretch {
+  align-items: stretch;
+}
+
+// Align content
+.content-start {
+  align-content: flex-start;
+}
+
+.content-end {
+  align-content: flex-end;
+}
+
+.content-center {
+  align-content: center;
+}
+
+.content-between {
+  align-content: space-between;
+}
+
+.content-around {
+  align-content: space-around;
+}
+
+.content-stretch {
+  align-content: stretch;
+}
+
+// Align self for individual items
+.self-auto {
+  align-self: auto;
+}
+
+.self-start {
+  align-self: flex-start;
+}
+
+.self-end {
+  align-self: flex-end;
+}
+
+.self-center {
+  align-self: center;
+}
+
+.self-baseline {
+  align-self: baseline;
+}
+
+.self-stretch {
+  align-self: stretch;
+}
+
+// Gap utilities (in rem for responsive spacing)
+.gap-0 {
+  gap: 0;
+}
+
+.gap-1 {
+  gap: 0.25rem;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.gap-3 {
+  gap: 0.75rem;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+.gap-5 {
+  gap: 1.5rem;
+}
+
+.gap-6 {
+  gap: 2rem;
+}
+
+.flex-1 {
+  flex: 1 1 0%;
+}
