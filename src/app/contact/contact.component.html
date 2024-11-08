@@ -1,7 +1,16 @@
-<div class="contact md:width-50">
+<div class="container">
     <app-panel>
-        <h2 header>Contact Us</h2>
+        <div breadcrumb>
+            <ul class="breadcrumb">
+                <li><a href="/">Home</a></li>
+                <li>Contact Us</li>
+            </ul>
+        </div>
+        <label class="page-title" header>Contact Us</label>
         <div body>
+
+            <h2 class="mt-1 font-thin">Let’s talk about your project</h2>
+            <small class="secondary-text">We help companies and individuals build out their digital presence.</small>
 
 
             <app-dynamic-form [formConfig]="formData"></app-dynamic-form>

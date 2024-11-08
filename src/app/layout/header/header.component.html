@@ -1,19 +1,17 @@
-<header class="container position-fixed flex flex-row items-center z-1 top-0 right-0">
-    <div class="flex-1">
-        <a href="/" class="logo txt-primary" title="Ishwar Katwe">
-            <h1>IK</h1>
-        </a>
+<header class="container flex-row items-center justify-between">
+    <a href="/" class="logo txt-primary" title="Ishwar Katwe">
+        <h1>IK</h1>
+    </a>
+    <div class="nav flex flex-row justify-evenly gap-6">
+        @for (item of nav; track $index) {
+        <a [routerLink]="[item.link]" [routerLinkActive]="['active']">{{item.name}}</a>
+        }
     </div>
-    <div class="flex flex-1 items-center justify-center gap-5 nav content-around">
-        <a [routerLink]="['/home']" [routerLinkActive]="['active']">Home</a>
-        <a [routerLink]="['/about']" [routerLinkActive]="['active']">About</a>
-        <a [routerLink]="['/contact']" [routerLinkActive]="['active']">Contact</a>
-    </div>
-    <div class="flex items-center justify-center gap-5">
-        <a (click)="toggle()" class="flex items-center justify-center">
+    <div class="flex items-center justify-evenly gap-4">
+        <a class="flex items-center justify-evenly" (click)="toggle()">
             <img src="/assets/icons/{{theme}}_mode.svg" width="25px" height="25px" />
         </a>
-        <button class="button-primary ">
+        <button class="button-primary">
             Login
         </button>
     </div>

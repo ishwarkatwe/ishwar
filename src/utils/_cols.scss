@@ -1,0 +1,44 @@
+// SCSS Breakpoints
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+
+// Mixin for responsive columns
+@mixin responsive-col($breakpoint, $col-span) {
+  @media (min-width: $breakpoint) {
+    flex: 0 0 #{calc($col-span * 100% / 12)};
+    max-width: #{calc($col-span * 100% / 12)};
+  }
+}
+
+// Base column for mobile-first
+.col {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+// Loop through column spans (1-12) and generate classes for each breakpoint
+@for $i from 1 through 12 {
+  // Mobile-first column classes
+  .col-#{$i} {
+    flex: 0 0 #{calc($i * 100% / 12)};
+    max-width: #{calc($i * 100% / 12)};
+  }
+
+  // Medium screen column classes
+  .md\:col-#{$i} {
+    @include responsive-col($breakpoint-md, $i);
+  }
+
+  // Large screen column classes
+  .lg\:col-#{$i} {
+    @include responsive-col($breakpoint-lg, $i);
+  }
+
+  // Extra-large screen column classes
+  .xl\:col-#{$i} {
+    @include responsive-col($breakpoint-xl, $i);
+  }
+}

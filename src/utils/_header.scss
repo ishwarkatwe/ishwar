@@ -1,0 +1,26 @@
+.page-title {
+  font-size: 26px;
+  font-weight: 300;
+}
+
+.breadcrumb {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  display: inline-flex;
+  li {
+    font-size: 14px;
+    color: $secondary-text;
+    a {
+      &:hover {
+        color: $accent;
+      }
+    }
+  }
+}
+
+ul.breadcrumb li + li:before {
+  padding: 8px;
+  color: black;
+  content: "/\00a0";
+}

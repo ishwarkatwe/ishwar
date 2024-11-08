@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { menu } from '../constants/nav.constants';
 
 @Component({
   selector: 'app-header',
@@ -9,19 +10,20 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
-  theme = 'light';
+  theme = 'dark';
+  nav = menu;
 
   toggle() {
     const body = document.body;
     if (body.classList.contains('light-theme')) {
       body.classList.replace('light-theme', 'dark-theme');
-      this.theme = 'dark';
+      this.theme = 'light';
     } else if (body.classList.contains('dark-theme')) {
       body.classList.replace('dark-theme', 'light-theme');
-      this.theme = 'light';
+      this.theme = 'dark';
     } else {
       body.classList.add('dark-theme');
-      this.theme = 'dark';
+      this.theme = 'light';
     }
   }
 }

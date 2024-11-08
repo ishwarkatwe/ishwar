@@ -1,16 +1,17 @@
 <div class="panel flex flex-column my-1">
     <!-- Panel Header -->
-    <div class="panel-header">
+    <div class="panel__header">
+        <ng-content select="[breadcrumb]"></ng-content>
         <ng-content select="[header]"></ng-content>
     </div>
 
     <!-- Panel Body -->
-    <div class="panel-body">
+    <div class="panel__body">
         <ng-content select="[body]"></ng-content>
     </div>
 
     <!-- Panel Footer -->
-    <div class="panel-footer">
+    <div class="panel__footer">
         <ng-content select="[footer]"></ng-content>
     </div>
 </div>

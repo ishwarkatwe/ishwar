@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { menu } from '../constants/nav.constants';
 
 @Component({
   selector: 'app-footer',
@@ -9,18 +10,5 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './footer.component.scss',
 })
 export class FooterComponent {
-  nav = [
-    {
-      name: 'Home',
-      link: '/home',
-    },
-    {
-      name: 'About',
-      link: '/about',
-    },
-    {
-      name: 'Contact',
-      link: '/contact',
-    },
-  ];
+  nav = menu;
 }
