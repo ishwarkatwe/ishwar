@@ -1,10 +1,61 @@
-<form [formGroup]="form" (ngSubmit)="submitForm()">
+<form [formGroup]="form">
 
-    @for (field of formConfig().formFields; track $index) {
-    <div class="my-1">
-        <label class="text-secondary">{{ field.label }}</label>
-        <input type="text" formControlName="{{ field.name }}" placeholder="{{ field.placeholder }}" />
+    @for (field of formConfig().controls; track $index) {
+    <div class="control my-1">
+        @if (['text','email','number','date','password','select'].includes(field.type)) {
+        <label [for]="field.label" class="text-secondary">{{ field.label }}
+            @if (field.validators.required) {
+            <span class="control__error">*</span>
+            }
+        </label>
+        }
+
+        @if (['text','email','number','date','password'].includes(field.type)) {
+        <input [id]="field.label" [type]="field.type" formControlName="{{ field.name }}"
+            placeholder="{{ field.placeholder }}" [ngModel]="field.defaultValue" />
+        }
+
+        @if (['checkbox'].includes(field.type)) {
+        <div class="flex flex-row items-center">
+            <span class="m-1">
+                <input type="checkbox" [formControlName]="field.name" [id]="field.name"
+                    [ngModel]="field.defaultValue" />
+            </span>
+            <label [for]="field.name" class="width-100 text-secondary">
+                {{ field.label }}
+            </label>
+        </div>
+
+        }
+
+        @if (['select'].includes(field.type)) {
+        <select [id]="field.label" type="text" formControlName="{{ field.name }}">
+            <option>--Choose--</option>
+            @for (op of field.options; track $index) {
+            <option [value]="op.id">{{op.value}}</option>
+            }
+        </select>
+        }
+
+        @if (form.controls[field.name].errors && (form.controls[field.name].touched || isSubmitted)) {
+        @for (error of errorTypes; track $index) {
+        @if (form.controls[field.name].errors?.[error.toLowerCase()]) {
+        <span class="control__error">
+            {{field.errorMessages[error] || 'Field value is not valid'}}
+        </span>
+        }
+        }
+        }
+
     </div>
     }
-    <button class="button-large" (click)="submitForm()">Submit</button>
+
+    <div class="my-1 text-right">
+        @if (formConfig().actions.secondary?.label) {
+        <button class="button-large">{{formConfig().actions.secondary?.label}}</button>
+        }
+        <button type="button" class="button-large"
+            (click)="submitForm()">{{formConfig().actions.primary.label}}</button>
+    </div>
+
 </form>

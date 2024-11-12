@@ -1,9 +1,12 @@
-export const FormData = {
-  formFields: [
+import { IDynamicForm } from '../ui/dynamic-form/dynamic-form.interface';
+
+export const FormData: IDynamicForm = {
+  controls: [
     {
       type: 'text',
       name: 'username',
       label: 'Username',
+      defaultValue: '',
       placeholder: 'Enter your username',
       validators: {
         required: true,
@@ -21,24 +24,31 @@ export const FormData = {
       placeholder: 'Enter your email',
       validators: {
         required: true,
-        pattern: '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$',
+        // pattern: '/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/',
       },
       errorMessages: {
         required: 'Email is required',
         pattern: 'Enter a valid email address',
       },
+      defaultValue: '',
     },
     {
       type: 'select',
       name: 'country',
       label: 'Country',
-      options: ['USA', 'Canada', 'UK'],
+      options: [
+        {
+          id: 'India',
+          value: 'India',
+        },
+      ],
       validators: {
         required: true,
       },
       errorMessages: {
         required: 'Please select a country',
       },
+      defaultValue: '',
     },
     {
       type: 'checkbox',
@@ -50,6 +60,13 @@ export const FormData = {
       errorMessages: {
         required: 'You must accept the terms',
       },
+      defaultValue: false,
     },
   ],
+  actions: {
+    primary: {
+      label: 'Send',
+      event: '',
+    },
+  },
 };

@@ -1,12 +1,11 @@
 $white: white;
 $black: black;
 $grey: grey;
-$primary: #651FFF;
-$secondary: #536DFE;
+$primary: #651fff;
+$secondary: #536dfe;
 $primary-text: #212121;
 $secondary-text: #757575;
 $accent: #ff4081;
-
 
 // Light Theme Colors
 $background-light: $white;
@@ -24,3 +23,7 @@ $border-dark: #424242;
 $primary-color: $primary;
 $secondary-color: $secondary;
 $accent-color: $accent;
+
+.text-right {
+  text-align: right;
+}

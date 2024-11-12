@@ -10,12 +10,9 @@
         <div body>
 
             <h2 class="mt-1 font-thin">Let’s talk about your project</h2>
-            <small class="secondary-text">We help companies and individuals build out their digital presence.</small>
+            <p class="secondary-text">We help companies and individuals build out their digital presence.</p>
 
-
-            <app-dynamic-form [formConfig]="formData"></app-dynamic-form>
-
-
+            <app-dynamic-form [formConfig]="formData" (submit)="onSubmit($event)"></app-dynamic-form>
         </div>
         <div footer>
 

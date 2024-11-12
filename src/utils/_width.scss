@@ -1,0 +1,43 @@
+// Define breakpoints with exact pixel values for each responsive class
+$breakpoints: (
+  "sm": 576px,
+  "md": 768px,
+  "lg": 992px,
+  "xl": 1200px,
+);
+
+// Mixin to generate width utility classes with responsive support
+@mixin generate-width-classes($widths) {
+  @each $name, $value in $widths {
+    // Base width class
+    .width-#{$name} {
+      width: $value;
+    }
+
+    // Responsive width classes for each breakpoint
+    @each $breakpoint, $breakpoint-value in $breakpoints {
+      .#{$breakpoint}\:width-#{$name} {
+        @media (min-width: #{$breakpoint-value}) {
+          width: $value;
+        }
+      }
+    }
+  }
+}
+
+// Define widths in a map (add or modify values as needed)
+$widths: (
+  100: 100%,
+  90: 90%,
+  80: 80%,
+  70: 70%,
+  60: 60%,
+  50: 50%,
+  40: 40%,
+  30: 30%,
+  20: 20%,
+  10: 10%,
+);
+
+// Generate the utility classes using the mixin
+@include generate-width-classes($widths);

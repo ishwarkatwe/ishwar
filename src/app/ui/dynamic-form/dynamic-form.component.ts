@@ -1,6 +1,12 @@
-import { Component, effect, input, signal } from '@angular/core';
 import {
-  AbstractControl,
+  Component,
+  computed,
+  effect,
+  input,
+  output,
+  signal,
+} from '@angular/core';
+import {
   FormBuilder,
   FormControl,
   FormGroup,
@@ -8,26 +14,8 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-
-export interface IForm {
-  formFields: {
-    type: string;
-    name: string;
-    label: string;
-    placeholder: string;
-    validators: {
-      required: boolean;
-      minLength: number;
-      pattern?: undefined;
-    };
-    errorMessages: {
-      required: string;
-      minLength: string;
-      pattern?: undefined;
-    };
-    options?: undefined;
-  }[];
-}
+import { IDynamicForm } from './dynamic-form.interface';
+import { ErrorTypes } from './dynamic-form.constants';
 
 @Component({
   selector: 'app-dynamic-form',
@@ -37,16 +25,26 @@ export interface IForm {
   styleUrl: './dynamic-form.component.scss',
 })
 export class DynamicFormComponent {
-  formConfig = input.required<IForm>();
-
-  // Signals for form state and error tracking
+  formConfig = input.required<IDynamicForm>();
   form!: FormGroup;
   formErrors = signal({});
+  isSubmitted = false;
+  errorTypes = ErrorTypes;
+  submit = output<Object>();
+  errorKeys: string[] | undefined;
+  conditionalCount = computed(() => {
+    console.log('demoo');
+    console.log(this.formErrors());
+  });
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder) {
+    effect(() => {
+     this.errorKeys =  Object.keys(this.formErrors());
+    });
+  }
 
   ngOnInit() {
-    this.form = this.buildForm(this.formConfig().formFields);
+    this.form = this.buildForm(this.formConfig().controls);
   }
 
   buildForm(fields: any[]): FormGroup {
@@ -72,12 +70,12 @@ export class DynamicFormComponent {
     return formValidators;
   }
 
-  // Handle form submit and check for errors
   submitForm() {
-    if (this.form.invalid) {
-      this.checkErrors(this.formConfig().formFields);
-    } else {
-      console.log('Form Submitted:', this.form.value);
+    this.isSubmitted = true;
+    this.checkErrors(this.formConfig().controls);
+    if (this.form.valid) {
+      // console.log('Form Submitted:', this.form.value);
+      this.submit.emit(this.form.value);
     }
   }
 

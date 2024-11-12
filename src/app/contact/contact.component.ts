@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
 import { PanelComponent } from '../ui/panel/panel.component';
-import {
-  DynamicFormComponent,
-  IForm,
-} from '../ui/dynamic-form/dynamic-form.component';
+import { DynamicFormComponent } from '../ui/dynamic-form/dynamic-form.component';
 import { FormData } from './constants';
+import { IDynamicForm } from '../ui/dynamic-form/dynamic-form.interface';
 
 @Component({
   selector: 'app-contact',
@@ -14,5 +12,9 @@ import { FormData } from './constants';
   styleUrl: './contact.component.scss',
 })
 export class ContactComponent {
-  formData = FormData as IForm;
+  formData: IDynamicForm = FormData;
+
+  onSubmit(form: Object) {
+    console.log('form data',form);
+  }
 }
